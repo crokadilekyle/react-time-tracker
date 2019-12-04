@@ -1,0 +1,21 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  align-items: center;
+  margin: auto;
+  margin-bottom: 3em;
+}
+
+select {
+  margin: 1em 0;
+}
+
+.container {
+  margin-top: 2em;
+}
