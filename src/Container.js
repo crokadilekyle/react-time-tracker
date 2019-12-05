@@ -3,49 +3,80 @@ import moment from "moment";
 
 import Form from "./Form";
 import Log from "./Log";
+import Nav from "./Nav";
+import CodeCreate from "./CodeCreate";
 
 class Container extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      code: "",
-      timestamp: "",
-      stamps: JSON.parse(localStorage.timestamps)
+      punch: {
+        code: "",
+        timestamp: ""
+      },
+      stamps: JSON.parse(localStorage.timestamps),
+      show: false
     };
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  //Add time code functions
   onChange = e => {
     this.setState({
-      code: e.target.value,
-      timestamp: moment().format()
+      punch: {
+        code: e.target.value,
+        timestamp: moment().format()
+      }
     });
   };
 
   onSubmit = e => {
     e.preventDefault();
+
     let timestamps = JSON.parse(localStorage.timestamps);
-    timestamps.push(this.state);
-    localStorage.setItem("timestamps", JSON.stringify(timestamps));
+    if (this.state.punch.code !== "") {
+      timestamps.push(this.state.punch);
+      localStorage.setItem("timestamps", JSON.stringify(timestamps));
+      this.setState({
+        punch: {
+          code: "",
+          timestamp: ""
+        },
+        stamps: JSON.parse(localStorage.timestamps)
+      });
+    } else {
+      console.log("cant be blank");
+    }
+  };
+
+  //clear Time Stamps function
+  clearStamps = () => {
     this.setState({
-      code: "",
-      timestamp: "",
-      stamps: JSON.parse(localStorage.timestamps)
+      stamps: []
+    });
+    localStorage.setItem("timestamps", JSON.stringify([]));
+  };
+
+  //Add Code Functions
+  showModal = () => {
+    this.setState({
+      show: !this.state.show
     });
   };
 
   render() {
-    const { code, timestamp, stamps } = this.state;
+    const { punch, stamps, show } = this.state;
     return (
-      <div className="container">
-        <h1>Time Tracker</h1>
+      <div className="container-fluid">
+        <Nav showModal={this.showModal} />
+        {show ? <CodeCreate /> : ""}
         <Form
           onSubmit={this.onSubmit}
           onChange={this.onChange}
-          code={code}
-          timestamp={timestamp}
+          code={punch.code}
+          timestamp={punch.timestamp}
         />
-        <Log stamps={stamps} />
+        <Log stamps={stamps} clearStamps={this.clearStamps} />
       </div>
     );
   }

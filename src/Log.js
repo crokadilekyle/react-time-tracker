@@ -9,7 +9,7 @@ export default class Logs extends Component {
       if (duration < 10) {
         return `:0${duration}`;
       } else if (duration > 59) {
-        return `${hours}:${duration - 60}`;
+        return `${hours}:${duration % 60}`;
       } else {
         return `:${duration}`;
       }
@@ -41,6 +41,9 @@ export default class Logs extends Component {
             })}
           </tbody>
         </table>
+        <button className="btn btn-danger" onClick={this.props.clearStamps}>
+          Clear Time Stamps
+        </button>
       </div>
     );
   }

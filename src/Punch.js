@@ -7,7 +7,9 @@ class Punch extends Component {
   render() {
     return (
       <select className="form-control" onChange={this.props.onChange}>
-        <option default>Choose a code</option>
+        <option value="" default>
+          Choose a code
+        </option>
         {this.state.codes.map((code, i) => {
           return <option key={i}>{code.code}</option>;
         })}

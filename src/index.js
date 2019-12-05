@@ -7,9 +7,9 @@ import Container from "./Container";
 
 function App() {
   const codesOriginalState = [
-    { code: "aaxios", disabled: false },
-    { code: "soakitup", disabled: false },
-    { code: "wtha", disabled: false },
+    { code: "web development", disabled: false },
+    { code: "server management", disabled: false },
+    { code: "finances", disabled: false },
     { code: "break", disabled: false },
     { code: "endwork", disabled: false }
   ];
