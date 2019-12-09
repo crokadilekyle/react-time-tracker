@@ -17,7 +17,7 @@ export default class Logs extends Component {
     return (
       <div>
         <h3>Time Stamps</h3>
-        <table className="table">
+        <table>
           <thead>
             <tr>
               <th>Code</th>

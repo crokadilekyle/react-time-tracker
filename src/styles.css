@@ -1,17 +1,144 @@
+:root {
+  --blue: rgb(50, 93, 121);
+  --white: #fefefe;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+h3 {
+  font-size: 1.6rem;
+}
+
+body {
+  background-color: var(--white);
+}
+
 .App {
   font-family: sans-serif;
   text-align: center;
+  font-family: "Roboto";
+}
+
+nav ul {
+  display: flex;
+  justify-content: flex-start;
+  list-style: none;
+  color: #efefef;
+  background-color: var(--blue);
+  padding: 1em;
+  margin: 0 auto;
+}
+
+nav ul li:nth-child(2) {
+  margin-left: auto;
+}
+
+nav ul li span {
+  font-size: 0.9em;
+}
+
+nav ul li span:hover {
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.2s ease-in-out;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  max-width: 500px;
+  justify-content: space-around;
+  max-width: 80vw;
   align-items: center;
-  margin: auto;
+  margin: 2em auto;
+  padding: 2em;
+  border: 1px solid #dee2e6;
+  border-radius: 0.2rem;
   margin-bottom: 3em;
 }
 
-select {
-  margin: 1em 0;
+fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+}
+
+select,
+input,
+button {
+  margin: 1rem auto;
+  padding: 0.7rem;
+  border-radius: 0.2rem;
+}
+
+button {
+  color: var(--white);
+  background: var(--blue);
+  border: none;
+  font: "Segoe UI", "roboto", sans-serif;
+  text-align: center;
+  font-size: 1em;
+}
+
+button:hover {
+  background-color: rgba(50, 93, 121, 0.5);
+  transition: background-color 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+table {
+  margin: 2rem auto;
+  width: 80vw;
+  border-collapse: collapse;
+}
+
+tr {
+  border-top: 1px solid #dee2e6;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #dee2e6;
+}
+
+th,
+td {
+  width: 80vw;
+  padding: 1rem 0;
+}
+
+.modal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.modal {
+  border: 1px solid #dee2e6;
+  background: var(--white);
+  width: 90vw;
+  margin: 2rem auto;
+  position: relative;
+}
+
+.modal header {
+  display: flex;
+  align-content: center;
+  height: 2.3rem;
+  line-height: 2.3rem;
+  padding-left: 0.5rem;
+}
+
+.modal header button {
+  margin: 0 0 0 auto;
 }

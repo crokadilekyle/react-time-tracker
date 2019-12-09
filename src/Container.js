@@ -69,7 +69,7 @@ class Container extends Component {
     return (
       <div className="container-fluid">
         <Nav showModal={this.showModal} />
-        {show ? <CodeCreate /> : ""}
+        {show ? <CodeCreate showModal={this.showModal} /> : ""}
         <Form
           onSubmit={this.onSubmit}
           onChange={this.onChange}
