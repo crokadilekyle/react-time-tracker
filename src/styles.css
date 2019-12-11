@@ -24,7 +24,7 @@ body {
 .App {
   font-family: sans-serif;
   text-align: center;
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
 }
 
 nav ul {
@@ -81,15 +81,17 @@ button {
 button {
   color: var(--white);
   background: var(--blue);
-  border: none;
+  border: 1px solid var(--white);
   font: "Segoe UI", "roboto", sans-serif;
   text-align: center;
   font-size: 1em;
 }
 
 button:hover {
-  background-color: rgba(50, 93, 121, 0.5);
-  transition: background-color 0.2s ease-in-out;
+  background-color: var(--white);
+  color: var(--blue);
+  border: 1px solid var(--blue);
+  transition: all 0.2s ease-in-out;
   cursor: pointer;
 }
 

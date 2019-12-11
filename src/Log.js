@@ -21,7 +21,7 @@ export default class Logs extends Component {
           <thead>
             <tr>
               <th>Code</th>
-              <th>Time In</th>
+              <th>Time In/Out</th>
               <th>Duration</th>
             </tr>
           </thead>
@@ -30,11 +30,14 @@ export default class Logs extends Component {
               return (
                 <tr key={i}>
                   <td>{stamp.code}</td>
-                  <td>{moment(stamp.timestamp).format("LT")}</td>
                   <td>
-                    {i > 0
+                    {stamp.inout.toUpperCase()}:{" "}
+                    {moment(stamp.timestamp).format("LT")}
+                  </td>
+                  <td>
+                    {stamp.inout === "out"
                       ? getDuration(stamps[i - 1].timestamp, stamp.timestamp)
-                      : "00"}
+                      : "--"}
                   </td>
                 </tr>
               );

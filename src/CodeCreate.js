@@ -6,41 +6,34 @@ export default class CodeCreate extends Component {
       <div className="modal-bg">
         <div className="modal">
           <header>
-            <h5 className="modal-title">Add A Code</h5>
+            <h5>Add A Code</h5>
             <button type="button" onClick={this.props.showModal}>
               <span aria-hidden="true">&times;</span>
             </button>
           </header>
-          <main className="modal-body">
-            <form>
-              <div className="form-group border rounded p-4">
-                <label for="addcode">
-                  <h3>Add Code</h3>
-                </label>
-                <span
-                  id="codeerror"
-                  className="d-block text-danger alert"
-                  style={{ minHeight: "24px" }}
-                />
+          <main>
+            <form onSubmit={this.props.addNewCode}>
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                <legend>
+                  <h3>Add a New Code</h3>
+                </legend>
+                <span id="codeerror" style={{ minHeight: "24px" }} />
                 <input
-                  className="form-control m-auto"
+                  onChange={this.props.getNewCode}
                   type="text"
-                  id="addcode"
                   placeholder="Add a Project Code"
-                  aria-describedby="addcodehelp"
+                  name="addcode"
                 />
-                <small id="addcodehelp" className="form-text text-muted">
-                  Add a Project Code
-                </small>
+                <label htmlFor="addcode">
+                  <small>Add a New Project Code</small>
+                </label>
+              </div>
+              <div>
+                <button onClick={this.props.showModal}>Close</button>
+                <button type="submit">Create Time Code</button>
               </div>
             </form>
           </main>
-          <div className="modal-footer">
-            <button type="button" onClick={this.props.showModal}>
-              Close
-            </button>
-            <button>Create Time Code</button>
-          </div>
         </div>
       </div>
     );
