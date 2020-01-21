@@ -29,8 +29,8 @@ export default class CodeCreate extends Component {
                 </label>
               </div>
               <div>
-                <button onClick={this.props.showModal}>Close</button>
                 <button type="submit">Create Time Code</button>
+                <button onClick={this.props.showModal}>Close</button>
               </div>
             </form>
           </main>

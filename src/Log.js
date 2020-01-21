@@ -31,7 +31,7 @@ export default class Logs extends Component {
                 <tr key={i}>
                   <td>{stamp.code}</td>
                   <td>
-                    {stamp.inout.toUpperCase()}:{" "}
+                    {`${stamp.inout.toUpperCase()} :`}
                     {moment(stamp.timestamp).format("LT")}
                   </td>
                   <td>
